@@ -1,5 +1,10 @@
 class Question:
+	# ASCII decimal value for 'a', where
+	# lettering for answers begins
 	startingLetter = 97
+
+	# ASCII decimal value for 'z', where
+	# lettering for answers ends
 	lastLetter = 122
 
 	def __init__(self):
@@ -7,6 +12,7 @@ class Question:
 		self.question = None
 		self.answer = None
 		self.choices = []
+		self.isCorrect = None
 
 	def print(self):
 		print(f"{self.number}. {self.question}")
@@ -18,17 +24,16 @@ class Question:
 
 		return
 
-	def getAnswer(self):
-		givenAnswer = input("> ")
-
+	def getAnswer(self, givenAnswer):
 		letter = Question.startingLetter
 		for choice in self.choices:
 			if givenAnswer == chr(letter) and choice == self.answer:
-				return True
-
+				self.isCorrect = True
+				return self.isCorrect
 			letter += 1
 
-		return False
+		self.isCorrect = False
+		return self.isCorrect
 
 	def checkAttributePresence(self, operation):
 		if operation == "?" and self.question != None:
