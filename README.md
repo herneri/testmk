@@ -13,13 +13,13 @@ for studying purposes.
 
 ## testmk statement summary:
 
-'[Operation] = [Value];'
+`[Operation] = [Value];`
 
 There are three operations, each of which are needed.
 
-1. Question ('?')
-2. Answer   ('A')
-3. Choices  ('C')
+1. Question (`?`)
+2. Answer   (`A`)
+3. Choices  (`C`)
 
 ## Output
 
