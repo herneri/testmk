@@ -33,6 +33,13 @@ class Question:
 	def print(self):
 		print(f"{self.number}. {self.question}")
 
+		from test import C_LINE, C_CLEAR
+		# Add 3 for the number, period, and space
+		for i in range(len(self.question) + 3):
+			print(f"{C_LINE}-{C_CLEAR}", end="")
+
+		print()
+
 		letter = Question.startingLetter
 		for choice in self.choices:
 			print(chr(letter) + ". " + choice)

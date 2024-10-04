@@ -19,6 +19,7 @@ import question
 # ANSI color escape codes
 # for distinguishing output
 C_PROMPT = "\x1b[36m"
+C_LINE = "\x1b[35m"
 C_WRONG = "\x1b[31m"
 C_RIGHT = "\x1b[32m"
 C_CLEAR = "\x1b[0m"
