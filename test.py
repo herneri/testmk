@@ -16,6 +16,13 @@
 
 import question
 
+# ANSI color escape codes
+# for distinguishing output
+C_PROMPT = "\x1b[36m"
+C_WRONG = "\x1b[31m"
+C_RIGHT = "\x1b[32m"
+C_CLEAR = "\x1b[0m"
+
 def arrayToString(array):
 	string = ""
 
@@ -114,7 +121,9 @@ def readTest(testFile, questionSet):
 def startTest(questionSet):
 	for question in questionSet:
 		question.print()
-		question.getAnswer(input("> "))
+		question.getAnswer(input(f"{C_PROMPT}> "))
+
+		print(C_CLEAR)
 
 	return
 
@@ -124,10 +133,10 @@ def getResults(questionSet):
 		print(f"{question.number}. {question.question}")
 
 		if question.isCorrect == False:
-			print(f"X - {question.answer}")
+			print(f"{C_WRONG}X{C_CLEAR} - {question.answer}")
 			continue
 
-		print(f"CORRECT - {question.answer}")
+		print(f"{C_RIGHT}C{C_CLEAR} - {question.answer}")
 		numberCorrect += 1
 	
 	print("\nTotal score: " + str(numberCorrect/len(questionSet)))
